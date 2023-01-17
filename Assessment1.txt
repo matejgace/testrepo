@@ -1,0 +1,91 @@
+public static List<Product> findByCategory(List<Product> products, Category category) {
+    return products.stream()
+            .filter(s -> s.getCategory() == category)
+            .limit(3)
+            .toList();
+}
+
+private static List<Product> findByCategoryAlphabetical(List<Product> products, Category category) {
+    return findByCategory(products.stream()
+            .sorted(Comparator.comparing(Product::getName))
+            .toList(),category);
+}
+
+
+//
+       for (int i = 3; i < filteredProductsAlphabetical.size() ; i++) {
+            //noinspection SuspiciousListRemoveInLoop
+            filteredProductsAlphabetical.remove(i);// to remove extra items because it has to scan all to sort them in order
+        }
+
+//
+
+public static boolean isValidProductId(String productId) {
+    if (!productId.matches("\\b[DF][0-9]{1,5}\\b")) {
+        return false;
+    } else if (productId.charAt(0) == 'D' && Integer.parseInt(productId.substring(1)) % 3 == 0) {
+        return true;
+    } else return productId.charAt(0) == 'F' && Integer.parseInt(productId.substring(1)) % 5 == 0;
+}
+
+//
+
+1.
+public static boolean isValidProductId(String productId) {
+    boolean checklogic = false;
+    if (productId.matches("^([D|F])(?:\\d{1,5})")){
+        if (productId.charAt(0) == 'D'){
+            String [] arr1 = productId.split("[A-Z-a-z]");
+            if (Integer.parseInt(arr1[1]) % 3 == 0){
+                checklogic = true;
+            }
+        }
+            if (productId.charAt(0) == 'F'){
+                String [] arr2 = productId.split("[A-Z-a-z]");
+                if (Integer.parseInt(arr2[1]) % 5 == 0){
+                    checklogic = true;
+                }
+            }
+        return  checklogic;
+    }
+    return checklogic;
+}
+//
+
+2.b
+
+newArrayList.stream()
+        .map(product -> product.getCategory())
+        .sorted();
+
+//
+
+public boolean isValid(String[] countryNames){
+for(String country : countryNames)
+{
+if (!getName().isEmpty() && !getLine1().isEmpty() && !getLine2().isEmpty() && getCountry().equals(country))
+return true;
+		}
+	}
+return false;
+}
+
+
+
+//
+
+
+The properties name, line1 and line2 are not empty.
+
+//
+
+Test.equals(false, a2.isValid(new String[]{"BELGIUM"}));
+
+.toUpp
+
+//
+
+
+
+
+
